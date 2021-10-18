@@ -16,11 +16,13 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <div class="text-right container-fluid pt-3 pb-5">
+                            <a href="{{ route('login') }}" class="h4 mr-3">Login</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="h4">Register</a>
+                            @endif
+                        </div>
                     @endauth
                 </div>
             @endif
