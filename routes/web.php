@@ -25,4 +25,9 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->namespace('Admin')->
 });
 
 
+// Rotte non gestite da auth
+Route::get('{any?}', function (){
+    return view ('guest.home');
+})->where('any', '.*');
+
 
