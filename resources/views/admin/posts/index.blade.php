@@ -34,7 +34,7 @@
                         <td class="d-flex justify-content-end">
                             <a href="{{route('admin.posts.show', $post->id)}}" class="btn btn-primary mr-2">Mostra</a>
                             <a class="btn btn-warning mr-2" href="{{route('admin.posts.edit', $post->id)}}">Modifica</a>
-                            <form method='POST' action="{{route('admin.posts.destroy', $post->id)}}">
+                            <form method='POST' action="{{route('admin.posts.destroy', $post->id)}}" class="delete-post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Cancella</button>
@@ -59,6 +59,19 @@
           </footer>
 
     </div>
-</section>
+</section>   
+@endsection
+
+@section('scripts')
+<script>
+    const deletePost = document.querySelectorAll('.delete-post'); 
+    deletePost.forEach(item =>{
+        item.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const confirmEvent = confirm('Vuoi realmente eliminare questo Post?');
+            if (confirmEvent) this.submit();
+        })
+    })
+</script>
     
 @endsection
