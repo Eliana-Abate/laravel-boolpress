@@ -36,6 +36,12 @@
             </tbody>
           </table>
 
+          <footer>
+              <div class="d-flex justify-content-center pt-5">
+                  {{$posts->links()}}
+              </div>
+          </footer>
+
     </div>
 </section>
     
