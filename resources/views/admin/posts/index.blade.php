@@ -3,7 +3,11 @@
 @section('content')
 <section>
     <div class="container">
-        <h1>Elenco post:</h1>
+        <header class="d-flex align-items-center justify-content-between pb-5">
+            <h1>Elenco post:</h1>
+            <a class="btn btn-primary" href="{{route('admin.posts.create')}}">Crea post</a>
+        </header>
+        
         <table class="table">
             <thead>
               <tr>
@@ -23,6 +27,7 @@
                         <td>{{$post->getFormattedDate('updated_at')}}</td>
                         <td>
                             <a href="{{route('admin.posts.show', $post->id)}}" class="btn btn-primary">Mostra</a>
+                            <a class="btn btn-warning" href="{{route('admin.posts.edit', $post->edit)}}">Modifica</a>
                         </td>
                     </tr>
                     
