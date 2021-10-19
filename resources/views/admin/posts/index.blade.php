@@ -3,6 +3,12 @@
 @section('content')
 <section>
     <div class="container">
+        @if (session('alert-message'))
+            <div class="alert alert-{{session('alert-type')}}">
+                {{session('alert-message')}}
+            </div>
+            
+        @endif
         <header class="d-flex align-items-center justify-content-between pb-5">
             <h1>Elenco post:</h1>
             <a class="btn btn-primary" href="{{route('admin.posts.create')}}">Crea post</a>
@@ -25,9 +31,9 @@
                         <td>{{$post->title}}</td>
                         <td>{{$post->getFormattedDate('created_at')}}</td>
                         <td>{{$post->getFormattedDate('updated_at')}}</td>
-                        <td>
-                            <a href="{{route('admin.posts.show', $post->id)}}" class="btn btn-primary">Mostra</a>
-                            <a class="btn btn-warning" href="{{route('admin.posts.edit', $post->id)}}">Modifica</a>
+                        <td class="d-flex justify-content-end">
+                            <a href="{{route('admin.posts.show', $post->id)}}" class="btn btn-primary mr-2">Mostra</a>
+                            <a class="btn btn-warning mr-2" href="{{route('admin.posts.edit', $post->id)}}">Modifica</a>
                             <form method='POST' action="{{route('admin.posts.destroy', $post->id)}}">
                                 @csrf
                                 @method('DELETE')
