@@ -27,7 +27,12 @@
                         <td>{{$post->getFormattedDate('updated_at')}}</td>
                         <td>
                             <a href="{{route('admin.posts.show', $post->id)}}" class="btn btn-primary">Mostra</a>
-                            <a class="btn btn-warning" href="{{route('admin.posts.edit', $post->edit)}}">Modifica</a>
+                            <a class="btn btn-warning" href="{{route('admin.posts.edit', $post->id)}}">Modifica</a>
+                            <form method='POST' action="{{route('admin.posts.destroy', $post->id)}}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Cancella</button>
+                            </form>
                         </td>
                     </tr>
                     
