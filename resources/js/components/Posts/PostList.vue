@@ -1,7 +1,11 @@
 <template>
   <section id="post-list">
     <h2>Elenco dei post</h2>
-    <Pagination />
+    <Pagination
+      :currentPage="pagination.currentPage"
+      :lastPage="pagination.lastPage"
+      @onPageChange="changePage"
+    />
     <PostCard v-for="post in posts" :key="post.id" :post="post" />
   </section>
 </template>
@@ -17,21 +21,31 @@ export default {
   },
 
   data() {
-    return { posts: [] };
+    return {
+      posts: [],
+      pagination: {},
+    };
   },
   methods: {
     //recupero i posts dall'indirizzo locale
-    getPosts() {
+    getPosts(page) {
       axios
-        .get("http://localhost:8000/api/posts")
+        .get(`http://localhost:8000/api/posts?page=${page}`)
         .then((res) => {
           //DESTRUCTURING AFTER PAGINATION
           const { data, current_page, last_page } = res.data;
           this.posts = data;
+          this.pagination = {
+            currentPage: current_page,
+            lastPage: last_page,
+          };
         })
         .catch((err) => {
           console.error(err);
         });
+    },
+    changePage(page) {
+      this.getPosts(page);
     },
   },
   created() {
