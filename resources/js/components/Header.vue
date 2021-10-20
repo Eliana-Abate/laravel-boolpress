@@ -1,7 +1,7 @@
 <template>
-  <div class="card-header">
-    <h1>Benvenuti su Boolpress</h1>
-  </div>
+  <header>
+    <h1 class="text-center text-primary">Benvenuti su Boolpress</h1>
+  </header>
 </template>
 
 <script>
