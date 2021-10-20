@@ -1965,8 +1965,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "PostCard"
+  name: "PostCard",
+  props: ["post"]
 });
 
 /***/ }),
@@ -37743,7 +37754,21 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { attrs: { id: "post-card" } })
+  return _c("section", { staticClass: "py-3", attrs: { id: "post-card" } }, [
+    _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-header" }, [
+        _c("h5", { staticClass: "card-title" }, [
+          _vm._v(_vm._s(_vm.post.title))
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _c("p", [_vm._v(_vm._s(_vm.post.content))]),
+        _vm._v(" "),
+        _c("address", [_vm._v(_vm._s(_vm.post.created_at))])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -37770,8 +37795,14 @@ var render = function() {
   return _c(
     "section",
     { attrs: { id: "post-list" } },
-    [_c("h2", [_vm._v("Elenco dei post")]), _vm._v(" "), _c("PostCard")],
-    1
+    [
+      _c("h2", [_vm._v("Elenco dei post")]),
+      _vm._v(" "),
+      _vm._l(_vm.posts, function(post) {
+        return _c("PostCard", { key: post.id, attrs: { post: post } })
+      })
+    ],
+    2
   )
 }
 var staticRenderFns = []

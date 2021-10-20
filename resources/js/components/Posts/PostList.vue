@@ -1,7 +1,7 @@
 <template>
   <section id="post-list">
     <h2>Elenco dei post</h2>
-    <PostCard />
+    <PostCard v-for="post in posts" :key="post.id" :post="post" />
   </section>
 </template>
 

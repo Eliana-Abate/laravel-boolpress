@@ -1,10 +1,21 @@
 <template>
-  <section id="post-card"></section>
+  <section id="post-card" class="py-3">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">{{ post.title }}</h5>
+      </div>
+      <div class="card-body">
+        <p>{{ post.content }}</p>
+        <address>{{ post.created_at }}</address>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
 export default {
   name: "PostCard",
+  props: ["post"],
 };
 </script>
 
