@@ -2027,7 +2027,12 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("http://localhost:8000/api/posts").then(function (res) {
-        _this.posts = res.data;
+        //DESTRUCTURING AFTER PAGINATION
+        var _res$data = res.data,
+            data = _res$data.data,
+            current_page = _res$data.current_page,
+            last_page = _res$data.last_page;
+        _this.posts = data;
       })["catch"](function (err) {
         console.error(err);
       });

@@ -22,7 +22,9 @@ export default {
       axios
         .get("http://localhost:8000/api/posts")
         .then((res) => {
-          this.posts = res.data;
+          //DESTRUCTURING AFTER PAGINATION
+          const { data, current_page, last_page } = res.data;
+          this.posts = data;
         })
         .catch((err) => {
           console.error(err);
