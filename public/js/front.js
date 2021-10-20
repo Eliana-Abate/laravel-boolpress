@@ -37765,7 +37765,7 @@ var render = function() {
       _c("div", { staticClass: "card-body" }, [
         _c("p", [_vm._v(_vm._s(_vm.post.content))]),
         _vm._v(" "),
-        _c("address", [_vm._v(_vm._s(_vm.post.created_at))])
+        _c("time", [_vm._v(_vm._s(_vm.post.created_at))])
       ])
     ])
   ])

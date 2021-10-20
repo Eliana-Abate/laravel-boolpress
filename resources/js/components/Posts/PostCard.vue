@@ -6,7 +6,7 @@
       </div>
       <div class="card-body">
         <p>{{ post.content }}</p>
-        <address>{{ post.created_at }}</address>
+        <time>{{ post.created_at }}</time>
       </div>
     </div>
   </section>
