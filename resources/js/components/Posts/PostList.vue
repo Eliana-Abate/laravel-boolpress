@@ -8,7 +8,7 @@
 
 <script>
 import PostCard from "./PostCard.vue";
-import Pagination from "..Pagination.vue";
+import Pagination from "../Pagination.vue";
 export default {
   name: "PostList",
   components: {
