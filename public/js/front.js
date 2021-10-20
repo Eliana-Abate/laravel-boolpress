@@ -1977,7 +1977,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PostCard",
-  props: ["post"]
+  props: ["post"],
+  methods: {
+    getFormattedDate: function getFormattedDate(date) {
+      var formattedDate = new Date();
+      var day = formattedDate.getDate();
+      var month = formattedDate.getMonth() + 1;
+      var year = formattedDate.getFullYear();
+      if (day < 10) day = "0" + day;
+      if (month < 10) month = "0" + month;
+      return "".concat(day, "-").concat(month, "-").concat(year);
+    }
+  }
 });
 
 /***/ }),
@@ -37765,7 +37776,12 @@ var render = function() {
       _c("div", { staticClass: "card-body" }, [
         _c("p", [_vm._v(_vm._s(_vm.post.content))]),
         _vm._v(" "),
-        _c("time", [_vm._v(_vm._s(_vm.post.created_at))])
+        _c("time", [
+          _vm._v(
+            "Pubblicato il: " +
+              _vm._s(_vm.getFormattedDate(_vm.post.created_at))
+          )
+        ])
       ])
     ])
   ])
