@@ -2003,6 +2003,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _PostCard_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PostCard.vue */ "./resources/js/components/Posts/PostCard.vue");
+!(function webpackMissingModule() { var e = new Error("Cannot find module '..Pagination.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+//
 //
 //
 //
@@ -2011,10 +2013,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PostList",
   components: {
-    PostCard: _PostCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    PostCard: _PostCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Pagination: !(function webpackMissingModule() { var e = new Error("Cannot find module '..Pagination.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
   },
   data: function data() {
     return {
@@ -37818,6 +37822,8 @@ var render = function() {
     { attrs: { id: "post-list" } },
     [
       _c("h2", [_vm._v("Elenco dei post")]),
+      _vm._v(" "),
+      _c("Pagination"),
       _vm._v(" "),
       _vm._l(_vm.posts, function(post) {
         return _c("PostCard", { key: post.id, attrs: { post: post } })

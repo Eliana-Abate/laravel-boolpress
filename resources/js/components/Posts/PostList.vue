@@ -1,16 +1,19 @@
 <template>
   <section id="post-list">
     <h2>Elenco dei post</h2>
+    <Pagination />
     <PostCard v-for="post in posts" :key="post.id" :post="post" />
   </section>
 </template>
 
 <script>
 import PostCard from "./PostCard.vue";
+import Pagination from "..Pagination.vue";
 export default {
   name: "PostList",
   components: {
     PostCard,
+    Pagination,
   },
 
   data() {
