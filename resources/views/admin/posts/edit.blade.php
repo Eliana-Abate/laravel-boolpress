@@ -32,6 +32,17 @@
                     <label for="image" class="form-label">Url immagine</label>
                     <input type="text" class="form-control @error ('image')is-invalid @enderror" id="image" name="image" value="{{$post->image}}">
                 </div>
+
+                <div class="form-group">
+                    <label for="category_id" class="form-label">Categoria</label>
+                    <select class="form-control" id="category_id" name="category_id">
+                        <option>Nessuna categoria</option>
+                        @foreach ($categories as $category)
+                        <option value="{{$category->id}}" @if(old('category_id', $post->category_id) == $category->id)selected @endif>{{$category->name}}</option>
+                            
+                        @endforeach
+                    </select>  
+                </div>
                
                 <div class="d-flex justify-content-center mt-5">
                     <a class="btn btn-warning mr-3" href="{{route('admin.posts.index')}}">Indietro</a>
