@@ -15,11 +15,14 @@ class CategoriesTableSeeder extends Seeder
     {
         $category_names = ['travel', 'food', 'lifestyle'];
 
-        foreach ($category_names as $name)
+        foreach ($category_names as $name) {
             $category = new Category();
             $category->name = $name;
             $category->slug = Str::slug($name, '-');
 
             $category->save();
+
+        }
+            
     }
 }
