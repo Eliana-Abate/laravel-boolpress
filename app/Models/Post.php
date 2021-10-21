@@ -15,6 +15,6 @@ class Post extends Model
 
     //dopo aver relazionato le tabelle nel DB, metto in connessione i Modelli
     public function category() {
-        return $this.belongsTo('App\Models\Category');
+        return $this->belongsTo('App\Models\Category');
     }
 }
