@@ -9,8 +9,8 @@
             </div>
             <div class="card-body">
                 <p>{{$post->content}}</p>
-                <address>{{$post->getFormattedDate('created_at')}}</address>
-              
+                <address>Pubblicato il: {{$post->getFormattedDate('created_at')}}</address>
+                <address>Categoria @if ($post->category) {{$post->category->name}} @else Nessuna categoria @endif</address>
                 <a href="{{route('admin.posts.index')}}" class="btn btn-primary">Indietro</a>
             </div>
         </div>

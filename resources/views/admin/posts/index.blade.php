@@ -19,6 +19,7 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
+                <th scope="col">Categoria</th>
                 <th scope="col">Created</th>
                 <th scope="col">Updated</th>
                 <th scope="col">Azioni</th>
@@ -29,6 +30,8 @@
                     <tr>
                         <th scope="row">{{$post->id}}</th>
                         <td>{{$post->title}}</td>
+                        <td> @if ($post->category) {{$post->category->name}} @else - @endif</td>
+                       
                         <td>{{$post->getFormattedDate('created_at')}}</td>
                         <td>{{$post->getFormattedDate('updated_at')}}</td>
                         <td class="d-flex justify-content-end">
