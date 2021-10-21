@@ -12,4 +12,9 @@ class Post extends Model
     public function getFormattedDate($column, $format = 'd-m-Y H:i:s') {
         return Carbon::create($this->$column)->format($format);
     }
+
+    //dopo aver relazionato le tabelle nel DB, metto in connessione i Modelli
+    public function category() {
+        return $this.belongsTo('App\Models\Category');
+    }
 }
