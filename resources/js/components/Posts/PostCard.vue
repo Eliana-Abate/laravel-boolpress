@@ -7,6 +7,7 @@
       <div class="card-body">
         <p>{{ post.content }}</p>
         <time>Pubblicato il: {{ getFormattedDate(post.created_at) }}</time>
+        <p>Categoria: {{ post.category.name || "-" }}</p>
       </div>
     </div>
   </section>

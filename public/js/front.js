@@ -2023,6 +2023,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PostCard",
   props: ["post"],
@@ -37930,7 +37931,9 @@ var render = function() {
             "Pubblicato il: " +
               _vm._s(_vm.getFormattedDate(_vm.post.created_at))
           )
-        ])
+        ]),
+        _vm._v(" "),
+        _c("p", [_vm._v("Categoria: " + _vm._s(_vm.post.category.name || "-"))])
       ])
     ])
   ])

@@ -60,6 +60,8 @@
               </div>
           </footer>
 
+          <hr>
+
           <section id="grouped-post" class="mt-5">
               <div class="row">
                   @foreach ($categories as $category)
