@@ -41,15 +41,16 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-         'title' => 'required|string|unique:posts|min:3|max:50',
-         'content' => 'required|string',
-         'image' => 'string',
-        ], 
+            'title' => 'required|string|unique:posts|min:3|max:50',
+            'content' => 'required|string',
+            'image' => 'string',
+            ], 
             ['required' => 'Il campo :attribute è obbligatorio',
              'min' => 'Il numero minimo di caratteri per il campo :attribute è :min',
              'title.unique' => 'Il titolo esiste già',
              'image.string' => "L'url dell'immagine deve essere una stringa di caratteri"
-        ]);
+            ],
+        );
 
         $data = $request->all();
         $post = new Post();
@@ -92,6 +93,18 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        $request->validate([
+            'title' => 'required|string|unique:posts|min:3|max:50',
+            'content' => 'required|string',
+            'image' => 'string',
+            ], 
+            ['required' => 'Il campo :attribute è obbligatorio',
+             'min' => 'Il numero minimo di caratteri per il campo :attribute è :min',
+             'title.unique' => 'Il titolo esiste già',
+             'image.string' => "L'url dell'immagine deve essere una stringa di caratteri"
+            ],
+        );
+        
         $data = $request->all();
         $data['slug']=Str::slug($data['title'], '-');
         $post->update($data);
