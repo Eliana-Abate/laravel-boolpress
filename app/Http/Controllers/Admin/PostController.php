@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class PostController extends Controller
 {
@@ -94,7 +95,7 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $request->validate([
-            'title' => 'required|string|unique:posts|min:3|max:50',
+            'title' => ['required', 'string', Rule::unique('posts')->ignore($post->id),'min:3','max:50'],
             'content' => 'required|string',
             'image' => 'string',
             ], 
@@ -104,7 +105,7 @@ class PostController extends Controller
              'image.string' => "L'url dell'immagine deve essere una stringa di caratteri"
             ],
         );
-        
+
         $data = $request->all();
         $data['slug']=Str::slug($data['title'], '-');
         $post->update($data);
