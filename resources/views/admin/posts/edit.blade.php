@@ -21,16 +21,16 @@
                 @method('PATCH')
                 <div class="form-group">
                     <label for="title" class="form-label">Titolo</label>
-                    <input type="text" class="form-control @error ('title')is-invalid @enderror" id="title" name="title" value="{{$post->title}}">
+                    <input type="text" class="form-control @error ('title')is-invalid @enderror" id="title" name="title" value="{{old('title', $post->title)}}">
                 </div>
                 <div class="form-group">
                     <label for="content" class="form-label">Descrizione</label>
-                    <textarea class="form-control  @error ('content')is-invalid @enderror"  rows="3" id="content" name="content" style="height: 100px">{{$post->content}}</textarea>
+                    <textarea class="form-control  @error ('content')is-invalid @enderror"  rows="3" id="content" name="content" style="height: 100px">{{old('content', $post->content)}}</textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="image" class="form-label">Url immagine</label>
-                    <input type="text" class="form-control @error ('image')is-invalid @enderror" id="image" name="image" value="{{$post->image}}">
+                    <input type="text" class="form-control @error ('image')is-invalid @enderror" id="image" name="image" value="{{old('image', $post->image)}}">
                 </div>
 
                 <div class="form-group">
