@@ -49,7 +49,6 @@
                     <tr>
                         <td colspan="5" class="text-center text-danger">Non sono presenti post</td>
                     </tr>
-                    
                 @endforelse
              
             </tbody>
@@ -61,6 +60,25 @@
               </div>
           </footer>
 
+          <section id="grouped-post" class="mt-5">
+              <div class="row">
+                  @foreach ($categories as $category)
+                  <div class="col-4">
+                      <h4 class="mb-3">{{$category->name}}</h4>
+                      @forelse ($category->posts as $post)
+                        <h6><a href="{{route('admin.posts.show', $post->id)}}">#{{$post->id}} - {{$post->title}}</a></h6>
+                          
+                      @empty
+                        Nessun post in questa categoria.
+                          
+                      @endforelse
+                  </div>
+                      
+                  @endforeach
+
+              </div>
+
+          </section>
     </div>
 </section>   
 @endsection
