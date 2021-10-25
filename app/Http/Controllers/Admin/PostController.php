@@ -64,6 +64,10 @@ class PostController extends Controller
         $post->slug=Str::slug($post->title, '-');
         $post->save();
 
+        //* Per creare la relazione tra le due tabelle, devo compilare la tabella pivot con il metodo attach()
+        //! MA...solo se mi arriva tags (cioè se la tabella tags è piena di elementi tag) nei $data
+        if(array_key_exists('tags', $data)) $post->tags()->attach($data['tags']);
+
         return redirect()->route('admin.posts.show', compact('post'));
     }
 
