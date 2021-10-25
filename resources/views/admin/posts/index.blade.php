@@ -20,6 +20,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
                 <th scope="col">Categoria</th>
+                <th scope="col">Tags</th>
                 <th scope="col">Created</th>
                 <th scope="col">Updated</th>
                 <th scope="col">Azioni</th>
@@ -30,7 +31,18 @@
                     <tr>
                         <th scope="row">{{$post->id}}</th>
                         <td>{{$post->title}}</td>
-                        <td> @if ($post->category) {{$post->category->name}} @else - @endif</td>
+                        <td> 
+                            @if ($post->category) {{$post->category->name}} 
+                            @else - 
+                            @endif
+                        </td>
+
+                        <td> 
+                            @forelse ($post->tags as $tag) 
+                            <span class="badge badge-pill" style="background-color: {{$tag->color}}; color: #ffffff">{{$tag->name}}</span>
+                            @empty - 
+                            @endforelse
+                        </td>
                        
                         <td>{{$post->getFormattedDate('created_at')}}</td>
                         <td>{{$post->getFormattedDate('updated_at')}}</td>
