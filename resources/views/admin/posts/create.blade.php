@@ -42,8 +42,17 @@
                     </select>  
                 </div>
 
-                
-               
+                <div>
+                    <h6>Check tags:</h6>
+                </div>
+                @foreach ($tags as $tag)
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="tag-{{$tag->id}}" value="{{$tag->id}}" name="tags[]" @if (in_array($tag->id, old('tags', []))) checked @endif>
+                    <label class="form-check-label" for="tag-{{$tag->id}}">{{$tag->name}}</label>
+                </div>
+                    
+                @endforeach
+
                 <div class="d-flex justify-content-center mt-5">
                     <a class="btn btn-warning mr-3" href="{{route('admin.posts.index')}}">Indietro</a>
                     <button type="reset" class="btn btn-secondary mr-3">Reset</button>
