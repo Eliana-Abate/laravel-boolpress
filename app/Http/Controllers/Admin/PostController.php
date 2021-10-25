@@ -49,6 +49,7 @@ class PostController extends Controller
             'title' => 'required|string|unique:posts|min:3|max:50',
             'content' => 'required|string',
             'image' => 'string',
+            'category_id' => 'nullable|exists:categories,id',
             'tags' => 'nullable|exists:tags,id'
             ], 
             ['required' => 'Il campo :attribute è obbligatorio',
