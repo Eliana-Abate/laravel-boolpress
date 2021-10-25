@@ -36,13 +36,24 @@
                 <div class="form-group">
                     <label for="category_id" class="form-label">Categoria</label>
                     <select class="form-control" id="category_id" name="category_id">
-                        <option>Nessuna categoria</option>
+                        <option value="">Nessuna categoria</option>
                         @foreach ($categories as $category)
                         <option value="{{$category->id}}" @if(old('category_id', $post->category_id) == $category->id)selected @endif>{{$category->name}}</option>
                             
                         @endforeach
                     </select>  
                 </div>
+
+                <div>
+                    <h6>Check tags:</h6>
+                </div>
+                @foreach ($tags as $tag)
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="tag-{{$tag->id}}" value="{{$tag->id}}" name="tags[]" @if (in_array($tag->id, old('tags', $tagIdsArray ?? []))) checked @endif>
+                    <label class="form-check-label" for="tag-{{$tag->id}}">{{$tag->name}}</label>
+                </div>
+                    
+                @endforeach
                
                 <div class="d-flex justify-content-center mt-5">
                     <a class="btn btn-warning mr-3" href="{{route('admin.posts.index')}}">Indietro</a>
