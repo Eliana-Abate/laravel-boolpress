@@ -16,7 +16,7 @@
                 </div>
             @endif
 
-            <form method="POST" action="{{route('admin.posts.store')}}">
+            <form method="POST" enctype="multipart/form-data" action="{{route('admin.posts.store')}}">
                 @csrf
                 <div class="form-group">
                     <label for="title" class="form-label">Titolo</label>
