@@ -42,6 +42,11 @@
                     </select>  
                 </div>
 
+                <div class="form-group">
+                    <label for="attachment_cover">Allega file</label>
+                    <input type="file" class="form-control-file @error ('attachment_cover') is-invalid @enderror" id="attachment_cover" name="attachment_cover">
+                </div>
+
                 <div>
                     <h6>Check tags:</h6>
                 </div>
