@@ -66,7 +66,7 @@ class PostController extends Controller
         $post->slug=Str::slug($post->title, '-');
 
         $img_path = Storage::put('public', $data['attachment_cover']);
-        $post->attachment_cover = $img_path;
+        $data['attachment_cover'] = $img_path;
         $post->save();
 
         //* Per creare la relazione tra le due tabelle, devo compilare la tabella pivot con il metodo attach()
