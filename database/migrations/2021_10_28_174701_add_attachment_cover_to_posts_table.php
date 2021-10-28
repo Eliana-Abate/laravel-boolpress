@@ -14,7 +14,7 @@ class AddAttachmentCoverToPostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            //
+            $table->string('attachment_cover')->nullable()->after('slug');
         });
     }
 
@@ -26,7 +26,7 @@ class AddAttachmentCoverToPostsTable extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            //
+            $table->dropColumn('attachment_cover');
         });
     }
 }
